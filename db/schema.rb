@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(version: 2020_10_25_162746) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "stores", force: :cascade do |t|
-    t.string "book_name"
-    t.integer "books_count"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "first_name", null: false
