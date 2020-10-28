@@ -21,6 +21,7 @@ gem 'puma', '~> 4.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'debase', '~> 0.2.4.1'
 gem 'graphql', '~> 1.10'
+gem "graphiql-rails"
 gem 'grape-swagger', '~> 1.3'
 gem 'grape-entity'
 gem 'grape-swagger-rails'
@@ -36,7 +37,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'graphiql-rails', '~> 1.7'
 
 end
 gem 'rswag'

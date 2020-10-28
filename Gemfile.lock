@@ -235,7 +235,7 @@ DEPENDENCIES
   grape-swagger (~> 1.3)
   grape-swagger-entity
   grape-swagger-rails
-  graphiql-rails (~> 1.7)
+  graphiql-rails
   graphql (~> 1.10)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
