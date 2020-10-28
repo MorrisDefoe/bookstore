@@ -102,7 +102,7 @@
     <orderEntry type="library" scope="PROVIDED" name="rswag-specs (v2.3.1, ruby-2.7.2-p137) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rswag-ui (v2.3.1, ruby-2.7.2-p137) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby2_keywords (v0.0.2, ruby-2.7.2-p137) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.0.2, ruby-2.7.2-p137) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sprockets (v3.7.2, ruby-2.7.2-p137) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.2.2, ruby-2.7.2-p137) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.0.1, ruby-2.7.2-p137) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thread_safe (v0.3.6, ruby-2.7.2-p137) [gem]" level="application" />

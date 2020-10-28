@@ -27,6 +27,7 @@ gem 'grape-entity'
 gem 'grape-swagger-rails'
 gem 'grape-swagger-entity'
 gem 'rspec-rails'
+gem 'sprockets', '~>3.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
