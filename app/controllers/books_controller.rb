@@ -20,7 +20,7 @@ class BooksController < ApplicationController
   end
 
   def find_by_genre
-    @book = Book.find_by_sql ['select * from books where genre LIKE ? and books.quantity > 0', params[:genre]]
+    @book = Book.find_by_sql ['select * from books where genre = ? and books.quantity > 0', params[:genre]]
     render json: @book
   end
 end

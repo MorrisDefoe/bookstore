@@ -72,7 +72,7 @@ module BookstoreApi
         requires :genre, type: String, desc: 'genre of a book'
       end
       get 'findByGenre' do
-        book = Book.find_by_sql ['select * from books where genre LIKE ? and books.quantity > 0', params[:genre]]
+        book = Book.find_by_sql ['select * from books where genre = ? and books.quantity > 0', params[:genre]]
         book
       end
     end
