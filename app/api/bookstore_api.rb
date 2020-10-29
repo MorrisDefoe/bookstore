@@ -39,6 +39,18 @@ module BookstoreApi
         user.save
         user
       end
+
+      desc 'change user`s status to admin'
+      params do
+        requires :email, type: String, desc: 'user`s email'
+      end
+      put 'makeAdmin' do
+        user = User.find_by_email(params[:email])
+        user.status =('admin')
+        user.save
+        { message: 'user`s status changed to admin' }
+      end
+
     end
 
     resources :books do

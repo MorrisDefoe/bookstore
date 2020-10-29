@@ -22,4 +22,13 @@ class UsersController < ApplicationController
     @user = User.find_by_sql ['select * from users where id IN (select distinct user_id from users_orders)']
     render json: @user
   end
+
+  def make_admin
+    @user = User.find_by_email(params[:email])
+    @user.status =('admin')
+    @user.save
+    render json: {
+        message: 'user`s status changed to admin'
+    }, status: 200
+  end
 end

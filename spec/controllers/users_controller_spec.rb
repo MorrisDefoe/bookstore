@@ -35,4 +35,12 @@ RSpec.describe UsersController, 'test users_controller' do
       expect(json).to eq([exp_user.as_json])
     end
   end
+  describe 'make_admin action' do
+    it 'show template if user`s status has been changed to admin`' do
+      put :make_admin, params: {email: 'aa@test.com'}
+      actual = JSON.parse(response.body, symbolize_names: true)
+      expected = { message: 'user`s status changed to admin' }
+      expect(actual).to eq expected
+    end
+  end
 end
