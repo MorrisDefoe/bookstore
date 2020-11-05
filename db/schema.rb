@@ -36,11 +36,13 @@ ActiveRecord::Schema.define(version: 2020_10_25_162746) do
   end
 
   create_table "users_orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.string "status", default: "ordered"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_users_orders_on_book_id"
+    t.index ["user_id"], name: "index_users_orders_on_user_id"
   end
 
 end

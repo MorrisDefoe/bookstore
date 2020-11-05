@@ -1,11 +1,8 @@
 class UsersOrder < ActiveRecord::Base
+  belongs_to :user
+  belongs_to :book
   enum status: {ordered: 'ordered', delivered: 'delivered' }
   validates :user_id, :book_id, presence: true
-  attr_accessor :status
-
-  order = UsersOrder.new
-  order.status = @status
-
   def change_status
     update_column(:status, 'delivered')
   end

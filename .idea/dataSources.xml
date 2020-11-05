@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="store_development@localhost" uuid="f5d8818e-9f4f-4061-b5b9-aaa5b964598c">
+    <data-source source="LOCAL" name="store_development@localhost" uuid="e92763e8-cdd2-42fd-b8b5-ef74dc6cb400">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/store_development</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="Rails store: production" uuid="3ba0bb84-e1ae-4676-9e0f-3b89304f55c3">
+    <data-source source="LOCAL" name="store_test@localhost" uuid="5fdcef92-5fd0-48ed-94ac-cce15d396e4e">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/store_production</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="Rails store: test" uuid="2573ebb2-f0f9-4c06-b1bf-0afeefab9b97">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/store_test</jdbc-url>
-    </data-source>
-    <data-source source="LOCAL" name="Rails store: development" uuid="236359fc-a98d-4a55-b9c7-91735f1ecae8">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/store_development</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/store_test</jdbc-url>
     </data-source>
   </component>
 </project>

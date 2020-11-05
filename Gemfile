@@ -20,13 +20,13 @@ gem 'puma', '~> 4.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'debase', '~> 0.2.4.1'
-gem 'graphql', '~> 1.10'
-gem "graphiql-rails"
-gem 'grape-swagger', '~> 1.3'
 gem 'grape-entity'
-gem 'grape-swagger-rails'
+gem 'grape-swagger', '~> 1.3'
 gem 'grape-swagger-entity'
-gem 'rspec-rails'
+gem 'grape-swagger-rails'
+gem "graphiql-rails"
+gem 'graphql', '~> 1.10'
+gem 'paper_trail'
 gem 'sprockets', '~>3.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
@@ -39,6 +39,9 @@ end
 
 group :development do
 
+end
+group :test do
+  gem 'rspec-rails'
 end
 gem 'rswag'
 

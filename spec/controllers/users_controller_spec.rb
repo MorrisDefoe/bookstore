@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe UsersController, 'test users_controller' do
   describe 'show action' do
     it 'show template if a user is found' do
-      get :show, params: {id: 2}
-      exp_user = User.new(id: 2, email: 'aa.bb@gmail.com', first_name: 'AA', last_name: 'BB', address: 'cc', status: 'user', created_at: '2020-10-28 12:02:56', updated_at: '2020-10-28 12:02:57')
+      get :show, params: {id: 1}
+      exp_user = User.new(id: 2, email: 'aa.bb@gmail.com', first_name: 'AA', last_name: 'BB', address: 'cc', status: 'user', created_at: '2020-11-05 12:54:56.000000', updated_at: '2020-11-05 12:54:57.000000')
       json = JSON.parse(response.body)
       expect(json).to eq(exp_user.as_json)
     end
