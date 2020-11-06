@@ -116,6 +116,8 @@ GEM
     graphql (1.11.5)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    jbuilder (2.10.1)
+      activesupport (>= 5.0.0)
     json-schema (2.8.1)
       addressable (>= 2.4)
     loofah (2.7.0)
@@ -242,6 +244,7 @@ DEPENDENCIES
   grape-swagger-rails
   graphiql-rails
   graphql (~> 1.10)
+  jbuilder (~> 2.7)
   paper_trail
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)

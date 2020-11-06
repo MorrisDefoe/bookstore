@@ -1,27 +1,30 @@
+# frozen_string_literal: true
 class BooksController < ApplicationController
   def add_book
-    @user = User.find_by_sql ["select * from users where email = ? and users.status = 'admin'", params[:email]]
-    if @user.count != 0
-      @books = Book.find_by_sql ['select * from books where author = ? and title = ? and genre = ?', params[:author], params[:title], params[:genre]]
-      if !@books.empty?
-        @books[0].change_books_quantity(params[:quantity])
+    user = User.find_by(email: params[:email])
+    if user.present?
+      book = Book.find_by(author: params[:author], title: params[:title], genre: params[:genre])
+      if book.present?
+        book.change_books_quantity(params[:quantity].nil? ? 1 : params[:quantity])
       else
-        @book = Book.new(author: params[:author], title: params[:title], genre: params[:genre], quantity: params[:quantity] != nil ? params[:quantity] : 1)
-        @book.save
-        render json: {
-            message: 'Book added'
-        }, status: 200
+        book = Book.new(book_params)
+        if book.save
+          render json: { message: 'Book added' }, status: 200
+        else
+          render json: { error: 'Book isn`t added' }, status: 400
+        end
       end
     else
-      render json: {
-          message: 'You have no rights to add a book'
-      }, status: 400
+      render json: { message: 'You have no rights to add a book' }, status: 400
     end
   end
 
   def find_by_genre
-    @book = Book.find_by_sql ['select * from books where genre = ? and books.quantity > 0', params[:genre]]
-    render json: @book
+    books = Book.where('quantity > 0 and genre = ?', params[:genre])
+    render json: books
+  end
+
+  def book_params
+    params.permit(:author, :title, :genre, :quantity).to_h
   end
 end
-
