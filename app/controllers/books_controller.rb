@@ -20,8 +20,7 @@ class BooksController < ApplicationController
   end
 
   def find_by_genre
-    books = Book.where('quantity > 0 and genre = ?', params[:genre])
-    render json: books
+    @books = Book.where('quantity > 0 and genre = ?', params[:genre])
   end
 
   def book_params

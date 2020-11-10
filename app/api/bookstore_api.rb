@@ -35,7 +35,7 @@ module BookstoreApi
         requires :address, type: String, desc: 'user`s address`'
       end
       post 'create' do
-        user = User.new(user_params)
+        user = User.new(email: params[:email],first_name: params[:first_name], last_name: params[:last_name], address: params[:address])
         if user.save
           { message: 'User has been created' }
         else

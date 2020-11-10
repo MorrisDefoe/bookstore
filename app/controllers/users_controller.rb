@@ -1,10 +1,8 @@
 class UsersController < ApplicationController
   def show
-    user = User.find_by(id: params[:id])
-    if user.present?
-      render json: user.as_json(only: %i[email first_name last_name address])
-    else
-      render json: { error: 'User not found' }
+    @user = User.find_by(id: params[:id])
+    unless @user.present?
+      render json: {error: 'User not found'}
     end
   end
 
@@ -18,8 +16,7 @@ class UsersController < ApplicationController
   end
 
   def active_users
-    users = UsersOrder.select(:user_id).distinct
-    render json: users.as_json(only: [:user_id], include: [{ user: { only: %i[email first_name address] } }])
+    @users = UsersOrder.select(:user_id).distinct
   end
 
   def make_admin

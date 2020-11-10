@@ -17,8 +17,7 @@ class OrderController < ApplicationController
   def show_orders
     user = User.find_by(email: params[:email])
     if user.present?
-      orders = UsersOrder.joins(:user, :book).where(status: params[:status]).order('created_at ASC')
-      render json: orders
+      @orders = UsersOrder.joins(:user, :book).where(status: params[:status]).order('created_at ASC')
     else
       render json: { error: 'User not found' }, status: 400
     end
