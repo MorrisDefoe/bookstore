@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount_devise_token_auth_for 'User', at: 'auth'
 
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   resources :books
   resources :order
   post 'api/v1/users/create', to: 'users#create'
-  get 'api/v1/user/:id', to: 'users#show'
+  get 'api/v1/users/:id', to: 'users#show'
   get 'api/v1/users/active', to: 'users#active_users'
   put 'api/v1/users/makeAdmin', to: 'users#make_admin'
   post 'api/v1/books/addBook', to: 'books#add_book'

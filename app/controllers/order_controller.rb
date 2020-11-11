@@ -1,4 +1,5 @@
 class OrderController < ApplicationController
+  before_action :authenticate_user!
 
   def order_book
     user = User.find_by(email: params[:email])

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, except: :create
+
   def show
     @user = User.find_by(id: params[:id])
     unless @user.present?
@@ -27,6 +29,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:email, :first_name, :last_name, :address).to_h
+    params.require(:user).permit(:email, :first_name, :last_name, :address, :password).to_h
   end
 end

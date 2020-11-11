@@ -28,6 +28,7 @@ gem "graphiql-rails"
 gem 'graphql', '~> 1.10'
 gem 'paper_trail'
 gem 'sprockets', '~>3.0'
+gem 'devise_token_auth'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 

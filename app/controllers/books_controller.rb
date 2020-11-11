@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 class BooksController < ApplicationController
+  before_action :authenticate_user!
+
   def add_book
     user = User.find_by(email: params[:email])
     if user.present?
