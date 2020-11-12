@@ -4,10 +4,12 @@ class BooksController < ApplicationController
 
   def add_book
     user = User.find_by(email: params[:email])
-    if user.present?
+    if user.status == 'admin'
       book = Book.find_by(author: params[:author], title: params[:title], genre: params[:genre])
       if book.present?
-        book.change_books_quantity(params[:quantity].nil? ? 1 : params[:quantity])
+        quantity = params[:quantity].nil? ? 1 : params[:quantity].to_i
+        book.quantity += quantity
+        render json: { message: 'Book added' }, status: 200
       else
         book = Book.new(book_params)
         if book.save

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     unless @user.present?
-      render json: {error: 'User not found'}
+      render json: {error: 'User not found'}, status: 404
     end
   end
 
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def active_users
-    @users = UsersOrder.select(:user_id).distinct
+    @users = UsersOrder.all.select(:user_id).distinct(:user_id)
   end
 
   def make_admin

@@ -29,12 +29,15 @@ gem 'graphql', '~> 1.10'
 gem 'paper_trail'
 gem 'sprockets', '~>3.0'
 gem 'devise_token_auth'
+
+gem 'factory_bot_rails'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'ffaker', '~> 2.17'
 
 end
 
