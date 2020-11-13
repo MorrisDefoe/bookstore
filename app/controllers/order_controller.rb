@@ -8,7 +8,6 @@ class OrderController < ApplicationController
       UsersOrder.create(user_id: user.id, book_id: book.id)
       book.decrease_quantity
       render json: { message: 'Order accepted' }, status: 200
-
     else
       render json: { error: 'Out of stock' }, status: 400
     end
