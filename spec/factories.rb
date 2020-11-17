@@ -7,12 +7,11 @@ FactoryBot.define do
     password { FFaker::Internet.password }
 
     trait :with_order do
-      after(:build) do |user|
-        user.users_orders << FactoryBot.build(:users_order)
+      after(:create) do |user,_|
+        create :users_order, user: user
       end
     end
   end
-
 
   factory :book do
     author { FFaker::Book.author }
@@ -22,8 +21,7 @@ FactoryBot.define do
   end
 
   factory :users_order do
-    user_id {FFaker::Random.rand(100)}
-    book_id {FFaker::Random.rand(100)}
+    association :book, factory: :book
     status {'ordered'}
   end
 end

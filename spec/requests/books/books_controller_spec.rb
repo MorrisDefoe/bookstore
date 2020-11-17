@@ -9,7 +9,7 @@ RSpec.describe "books_controller", type: :request do
   describe 'add_book action' do
     it 'show template if a user doesn`t have rights to add a book' do
       post "/api/v1/books/addBook", params: {email: user.email}
-      expect(response).to have_http_status(:bad_request)
+      expect(response).to have_http_status(:forbidden)
     end
 
     it 'show message if a user doesn`t have rights to add a book' do
@@ -21,7 +21,7 @@ RSpec.describe "books_controller", type: :request do
     it 'show template if book added' do
       user.status=('admin')
       post "/api/v1/books/addBook", params: {email: user.email, author: book.author, title: book.title, genre: book.genre, quantity: book.quantity}
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:created)
     end
 
     it 'show message if book added' do

@@ -1,0 +1,38 @@
+# frozen_string_literal: true
+module Api
+  module V1
+    class BooksController < ApplicationController
+      before_action :authenticate_user!
+
+      def add_book
+        if current_user.status == 'admin'
+          book = Book.find_by(author: params[:author], title: params[:title], genre: params[:genre])
+          if book.present?
+            quantity = params[:quantity].nil? ? 1 : params[:quantity].to_i
+            book.quantity += quantity
+            book.save
+            render json: { message: 'Book added' }, status: 201
+          else
+            book = Book.new(book_params)
+            if book.save
+              render json: { message: 'Book added' }, status: 201
+            else
+              render json: { error: 'Book isn`t added' }, status: 400
+            end
+          end
+        else
+          render json: { message: 'You have no rights to add a book' }, status: 403
+        end
+      end
+
+      def find_by_genre
+        @books = Book.where('quantity > 0 and genre = ?', params[:genre])
+      end
+
+      def book_params
+        params.permit(:author, :title, :genre, :quantity).to_h
+      end
+    end
+  end
+end
+
