@@ -7,7 +7,4 @@ class UsersOrder < ActiveRecord::Base
 
   validates :user_id, :book_id, presence: true
 
-  def change_status
-    update_column(:status, 'delivered')
-  end
 end

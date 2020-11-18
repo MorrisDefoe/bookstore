@@ -3,6 +3,6 @@ class Book < ActiveRecord::Base
 
   validates :author, :title, :genre, presence: true
 
-  validates_numericality_of :quantity, :greater_than => 0
+  validates_numericality_of :quantity, :greater_than => -1
 
 end

@@ -3,25 +3,22 @@ module Api
   module V1
     class BooksController < ApplicationController
       before_action :authenticate_user!
+      before_action :check_user_status, only: [:add_book]
 
       def add_book
-        if current_user.status == 'admin'
-          book = Book.find_by(author: params[:author], title: params[:title], genre: params[:genre])
-          if book.present?
-            quantity = params[:quantity].nil? ? 1 : params[:quantity].to_i
-            book.quantity += quantity
-            book.save
-            render json: { message: 'Book added' }, status: 201
-          else
-            book = Book.new(book_params)
-            if book.save
-              render json: { message: 'Book added' }, status: 201
-            else
-              render json: { error: 'Book isn`t added' }, status: 400
-            end
-          end
+        book = Book.find_by(author: params[:author], title: params[:title], genre: params[:genre])
+        if book.present?
+          quantity = params[:quantity] ? params[:quantity].to_i : 1
+          book.quantity += quantity
+          book.save
+          render json: {message: I18n.t('book.added')}, status: 201
         else
-          render json: { message: 'You have no rights to add a book' }, status: 403
+          book = Book.new(book_params)
+          if book.save
+            render json: {message: I18n.t('book.added')}, status: 201
+          else
+            render json: {error: I18n.t('book.not_added')}, status: 400
+          end
         end
       end
 
@@ -32,7 +29,12 @@ module Api
       def book_params
         params.permit(:author, :title, :genre, :quantity).to_h
       end
+
+      def check_user_status
+        return if current_user.status == 'admin'
+
+        render json: {message: I18n.t('user.access_denied')}, status: 403
+      end
     end
   end
 end
-
