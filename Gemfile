@@ -32,6 +32,7 @@ gem 'sprockets', '~>3.0'
 gem 'devise_token_auth'
 gem 'i18n', '~> 1.8', '>= 1.8.5'
 gem 'factory_bot_rails'
+gem 'pundit'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
