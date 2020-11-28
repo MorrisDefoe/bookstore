@@ -1,12 +1,8 @@
 class Book < ActiveRecord::Base
   has_many :users_orders
+
   validates :author, :title, :genre, presence: true
 
-  def decrement
-    update_column(:quantity, quantity_in_database - 1)
-  end
+  validates_numericality_of :quantity, :greater_than => -1
 
-  def change_books_quantity(value)
-    update_column(:quantity, quantity_in_database + value)
-  end
 end

@@ -30,4 +30,17 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  user:
+    user_not_found: 'User not found'
+    created: 'User has been created'
+    not_created: 'User has not been created'
+    change_user_status: 'user`s status changed to admin'
+    access_denied: 'You have no rights to add a book'
+  order:
+    accepted: 'Order accepted'
+    out_of_stock: 'Out of stock'
+    change_order_status: 'Status changed to delivered'
+  book:
+    added: 'Book added'
+    not_added: 'Book isn`t added'
+
